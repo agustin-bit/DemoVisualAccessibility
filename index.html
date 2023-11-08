@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Colorida</title>
+    <style>
+        /* Estilo colorido por defecto */
+        body {
+            background-color: #fcb000;
+            color: #f5f759;
+            font-family: Arial, sans-serif;
+            font-size: 8px;
+        }
+
+        /* Modo alto contraste */
+        body.high-contrast {
+            background-color: #000;
+            color: #FFF;
+        }
+
+        body.high-contrast * {
+            color: #FFF; /* Establecer el color del texto como blanco */
+        }
+
+        header.high-contrast {
+            background-color: #000;
+            color: #FFF;
+        }
+
+        nav.high-contrast {
+            background-color: #000;
+            color: #FFF;
+        }
+
+        body.large-text {
+            font-size: 24px; /* Aumenta el tamaño de fuente según desees */
+        }
+
+        header {
+            background-color: #8ae870;
+            color: #717479;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #8ae870;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin: 0 10px;
+            color: #58ACFA; /* Azul claro */
+            border: 2px solid #fff; /* Azul claro */
+        }
+
+        .content {
+            margin: 20px;
+            text-align: justify;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #2B4F81;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #2B4F81;
+            color: #FFF;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Título</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>Menú 1</li>
+            <li>Menú 2</li>
+            <li>Menú 3</li>
+        </ul>
+    </nav>
+    <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec ante eget elit dignissim venenatis.</p>
+        <p>Phasellus euismod erat eget neque efficitur, et tincidunt risus suscipit.</p>
+    </div>
+    <table>
+        <tr>
+            <th>Columna 1</th>
+            <th>Columna 2</th>
+            <th>Columna 3</th>
+        </tr>
+        <tr>
+            <td>Fila 1, Celda 1</td>
+            <td>Fila 1, Celda 2</td>
+            <td>Fila 1, Celda 3</td>
+        </tr>
+        <tr>
+            <td>Fila 2, Celda 1</td>
+            <td>Fila 2, Celda 2</td>
+            <td>Fila 2, Celda 3</td>
+        </tr>
+    </table>
+    <button id="contrastButton">Alternar Alto Contraste</button>
+    <button id="fontButton">Alternar Fuente</button>
+    <button id="textSizeButton">Aumentar Tamaño del Texto</button>
+
+    <script>
+        const body = document.body;
+        const header = document.querySelector('header');
+        const nav = document.querySelector('nav');
+        const contrastButton = document.getElementById('contrastButton');
+        const fontButton = document.getElementById('fontButton');
+        const textSizeButton = document.getElementById('textSizeButton');
+        let isCurvyFont = false;
+
+        fontButton.addEventListener('click', () => {
+            isCurvyFont = !isCurvyFont;
+            body.style.fontFamily = isCurvyFont ? "cursive" :  "Arial, sans-serif" ;
+        });
+
+        contrastButton.addEventListener('click', () => {
+            body.classList.toggle('high-contrast');
+            header.classList.toggle('high-contrast');
+            nav.classList.toggle('high-contrast');
+        });
+
+        textSizeButton.addEventListener('click', () => {
+            body.classList.toggle('large-text');
+        });
+    </script>
+</body>
+</html>
